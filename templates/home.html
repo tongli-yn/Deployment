@@ -1,22 +1,33 @@
 <!DOCTYPE html>
-<html>
-<title>Airline-delay-Prediction App</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Delay Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
 <body>
+    <div class="container mt-5">
+        <h1>Flight Delay Prediction</h1>
+        <form action="/getdelay" method="post">
+            <label for="day_of_week">Day of Week:</label>
+            <input type="number" name="day_of_week" required class="form-control">
 
-<form action = "/getdelay" method="POST">
-<p> Select Origin:<input name="origin" type ="text" value="JFK" /> </p>
-<p> Select Destination: <input name="dest" type ="text" value="LAX" /> </p>
-<p> Select Airline :   
-<select name="unique_carrier">
-<option value="AA">American Airlines </option>
-<option value="DL">Delta Air Lines </option>
-<option value="B6">JetBlue Airways</option>
-<option value="WN">Southwest Airlines </option>
-<option value="UA" selected>United Air Lines </option>
-</select>
-<p> Select Day of Week:<input name="day_of_week" type ="text" value="1" /> </p>
-<p> Select Departure Hour: <input name="dep_hour" type ="text" value="10" /> </p>
-<p> <input type ="submit" value="submit" /> </p>
-</form>
+            <label for="unique_carrier">Unique Carrier:</label>
+            <input type="text" name="unique_carrier" required class="form-control">
+
+            <label for="origin">Origin Airport:</label>
+            <input type="text" name="origin" required class="form-control">
+
+            <label for="dest">Destination Airport:</label>
+            <input type="text" name="dest" required class="form-control">
+
+            <label for="dep_hour">Departure Hour:</label>
+            <input type="number" name="dep_hour" required class="form-control">
+
+            <button type="submit" class="btn btn-primary mt-3">Predict Delay</button>
+        </form>
+    </div>
 </body>
 </html>
